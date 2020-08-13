@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { render, fireEvent } from "@testing-library/react";
-import ExampleComponent from "../ExampleComponent";
+import Header from "../Header";
 
 /*One common testing problem is wrapping react with it. Here, we create a wrapper
 component that can contain any variables, state, etc. needed for the rendering of our intended
-component we are going to test (ex. ExampleComponent).
+component we are going to test (ex. Header).
  */
 const ComponentContainer = () => {
   const [count, setCount] = useState(0);
@@ -12,7 +12,7 @@ const ComponentContainer = () => {
   return (
     <section>
       <h1>The Count is: {count}</h1>
-      <ExampleComponent count={count} setCount={setCount} />
+      <Header count={count} setCount={setCount} />
     </section>
   );
 };
