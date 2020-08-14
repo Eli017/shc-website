@@ -1,10 +1,10 @@
 import React from "react";
-import CorpsIcon from "../assets/images/CorpsIcon.jpg";
+import SHCLogo from "../assets/images/SHCLogo.png";
 
 const Header = () => {
   return (
     <header>
-      <img src={CorpsIcon} title="Digital Corps Logo" alt="Digital Corps Logo" />
+      <img src={SHCLogo} title="SHC Logo" alt="SHC Logo" />
     </header>
   );
 };
