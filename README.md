@@ -83,6 +83,10 @@ This application leverages a number of tools for test coverage
 | `yarn build`   | Builds the application for deployment (production mdoe) |
 | `yarn analyze` | Analyzes build bundle sizes (run `yarn build` first)    |
 
+## Project Specifics
+This project's styling is in the 7-in-1 structure found on this [Medium Sass Article](https://medium.com/@dannyhuang_75970/sass-project-structure-for-big-projects-8c4a740846ee).
+- A boilerplate example of this structure is here on Github's example [Repo](https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets).
+
 ### Credits
 
 The DeveloperTown CRA template inspired this template:

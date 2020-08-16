@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import "./styles/main.scss";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import HonorsCollege from "./pages/HonorsCollege";
-import Membership from "./pages/Membership";
-import Events from "./pages/Events";
-import CommunityEngagement from "./pages/CommunityEngagement";
-import Officers from "./pages/Officers";
-import Contact from "./pages/Contact";
-import Page404 from "./pages/404";
+import "./main.scss";
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
+import HonorsCollege from "./pages/HonorsCollege/HonorsCollege";
+import Membership from "./pages/Membership/Membership";
+import Events from "./pages/Events/Events";
+import CommunityEngagement from "./pages/CommunityEngagement/CommunityEngagement";
+import Officers from "./pages/Officers/Officers";
+import Contact from "./pages/Contact/Contact";
+import Page404 from "./pages/404/404";
 
 const App = () => {
   return (
