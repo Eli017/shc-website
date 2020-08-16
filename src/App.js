@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import HonorsCollege from "./pages/HonorsCollege/HonorsCollege";
 import Membership from "./pages/Membership/Membership";
 import Events from "./pages/Events/Events";
+import Calendar from "./pages/Calendar/Calendar";
 import CommunityEngagement from "./pages/CommunityEngagement/CommunityEngagement";
 import Officers from "./pages/Officers/Officers";
 import Contact from "./pages/Contact/Contact";
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path={"/honors"} component={HonorsCollege} />
           <Route exact path={"/membership"} component={Membership} />
           <Route exact path={"/events"} component={Events} />
+          <Route exact path={"/calendar"} component={Calendar} />
           <Route exact path={"/community"} component={CommunityEngagement} />
           <Route exact path={"/officers"} component={Officers} />
           <Route exact path={"/contact"} component={Contact} />
