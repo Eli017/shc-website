@@ -1,0 +1,28 @@
+@charset "UTF-8";
+//This file will inherit all other non-compiled scss files into one executable file.
+
+// 1. Configuration and helpers
+@import
+'abstracts/variables';
+
+// 2. No vendor related folders at the moment
+
+// 3. Base stuff
+@import
+'base/reset',
+'base/fonts',
+'base/typography';
+
+// 4. No Layout related folders at the moment
+
+// 5. Components
+@import
+'components/Header/header';
+
+// 6. Page-specific styles
+@import
+'pages/Home/home';
+
+// 7. Themes
+@import
+'themes/default';

@@ -1,5 +1,5 @@
 import React from "react";
-import SHCLogo from "../assets/images/SHCLogo.png";
+import SHCLogo from "../../assets/images/SHCLogo.png";
 
 const Header = () => {
   return (
