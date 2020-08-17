@@ -15,15 +15,15 @@ import Page404 from "./pages/404/404";
 const App = () => {
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route exact path={"/"} component={Home} />
           <Route exact path={"/honors"} component={HonorsCollege} />
           <Route exact path={"/membership"} component={Membership} />
           <Route exact path={"/events"} component={Events} />
-          <Route exact path={"/calendar"} component={Calendar} />
           <Route exact path={"/community"} component={CommunityEngagement} />
+          <Route exact path={"/calendar"} component={Calendar} />
           <Route exact path={"/officers"} component={Officers} />
           <Route exact path={"/contact"} component={Contact} />
           <Route exact path={"/404"} component={Page404} />
