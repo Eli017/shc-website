@@ -26,10 +26,11 @@ const Header = () => {
         <img src={SHCLogo} title="SHC Logo" alt="SHC Logo" />
       </NavLink>
       <nav>
+        <h3 className={"mobileMenu"}>Menu</h3>
         <ul>
           {links.map((link, i) => {
             if (link.isDropDown) {
-              return <DropDownNav name={link.text} dropDownLinks={dropDownLinks} />
+              return <DropDownNav key={i} name={link.text} dropDownLinks={dropDownLinks} />;
             } else {
               return (
                 <li key={i}>

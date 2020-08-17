@@ -1,12 +1,33 @@
 @import '../../abstracts/_variables.scss';
 
 .visitorHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  img {
+    width: 19rem;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
 
   nav {
+    position: sticky;
+    border-top: $common-grey solid 0.125rem;
+    border-bottom: $common-grey solid 0.125rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 50%;
 
     ul {
+      @media screen and (max-width: 650px) {
+        display: none;
+      }
+
       display: flex;
       flex-direction: row;
+      justify-content: space-evenly;
 
       li {
 
@@ -19,6 +40,16 @@
           }
         }
       }
+    }
+
+    .mobileMenu {
+      @media screen and (min-width: 650px) {
+        display: none;
+      }
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
     }
   }
 }

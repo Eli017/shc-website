@@ -10,4 +10,11 @@
       color: $primary-color;
     }
   }
+
+  ol {
+    position: absolute;
+    background: $common-white;
+    border: $common-grey solid 0.125rem;
+    padding: 0.2rem;
+  }
 }
