@@ -1,7 +1,8 @@
 import React from "react";
-import SHCLogo from "../../assets/images/SHCLogo.png";
 import { NavLink } from "react-router-dom";
+import SHCLogo from "../../assets/images/SHCLogo.png";
 import DropDownNav from "../DropDownNav/DropDownNav";
+import "./header.scss";
 
 const links = [
   { path: "/", text: "Home", isDropDown: false },
@@ -20,7 +21,7 @@ const dropDownLinks = [
 
 const Header = () => {
   return (
-    <header>
+    <header className={"visitorHeader"}>
       <NavLink exact to={"/"}>
         <img src={SHCLogo} title="SHC Logo" alt="SHC Logo" />
       </NavLink>

@@ -1,6 +1,24 @@
-header {
-  align-content: center;
+@import '../../abstracts/_variables.scss';
+
+.visitorHeader {
+
   nav {
-    
+
+    ul {
+      display: flex;
+      flex-direction: row;
+
+      li {
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,13 @@
+@import "../../abstracts/variables";
+
+.dropDownNav {
+  button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
