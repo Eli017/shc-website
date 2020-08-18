@@ -50,6 +50,8 @@ button {
   border: none;
   background: inherit;
   cursor: pointer;
+  font-family: Times, sans-serif;
+  font-size: 1rem;
 }
 button:hover {
   color: #f90100;
