@@ -3,6 +3,10 @@ import { NavLink } from "react-router-dom";
 import SHCLogo from "../../assets/images/SHCLogo.png";
 import DropDownNav from "../DropDownNav/DropDownNav";
 import "./header.scss";
+import { useModal } from "../../contexts/useModal";
+import NavigationModal from "../NavigationModal/NavigationModal";
+import modalRender from "../../helpers/ModalRender";
+
 
 const links = [
   { path: "/", text: "Home", isDropDown: false },
@@ -20,13 +24,18 @@ const dropDownLinks = [
 ];
 
 const Header = () => {
-  return (
+  const { modal, setModal } = useModal();
+
+  return modalRender(
+    modal,
     <header className={"visitorHeader"}>
       <NavLink exact to={"/"}>
         <img src={SHCLogo} title="SHC Logo" alt="SHC Logo" />
       </NavLink>
       <nav>
-        <h3 className={"mobileMenu"}>Menu</h3>
+        <button className={"mobileMenu"} onClick={() => setModal(NavigationModal)}>
+          Menu
+        </button>
         <ul>
           {links.map((link, i) => {
             if (link.isDropDown) {
@@ -43,7 +52,7 @@ const Header = () => {
           })}
         </ul>
       </nav>
-    </header>
+    </header>,
   );
 };
 

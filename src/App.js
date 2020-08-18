@@ -11,11 +11,15 @@ import CommunityEngagement from "./pages/CommunityEngagement/CommunityEngagement
 import Officers from "./pages/Officers/Officers";
 import Contact from "./pages/Contact/Contact";
 import Page404 from "./pages/404/404";
+import { useModal } from "./contexts/useModal";
 
 const App = () => {
+  const { modal } = useModal();
+
   return (
     <div className="App">
       <Router>
+        {modal}
         <Header />
         <Switch>
           <Route exact path={"/"} component={Home} />
