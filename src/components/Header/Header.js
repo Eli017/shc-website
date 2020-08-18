@@ -7,7 +7,6 @@ import { useModal } from "../../contexts/useModal";
 import NavigationModal from "../NavigationModal/NavigationModal";
 import modalRender from "../../helpers/ModalRender";
 
-
 const links = [
   { path: "/", text: "Home", isDropDown: false },
   { text: "About Us", isDropDown: true },
