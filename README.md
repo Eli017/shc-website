@@ -30,8 +30,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | src/components                          | the source files for reusable components developed for this application
 | src/components/`__tests__`              | tests used for different components within the application
 | src/pages                               | the components that act as the different pages to the application
-| src/contexts                            | (not included) contains multiple different context providers
-| src/helpers                             | (not included) contains common JS functions for multiple file applications
+| src/contexts                            | contains multiple different context providers and their hooks
+| src/helpers                             | contains common JS/JSX functions for multiple file applications
 | src/styles                              | stores any application styling, use can vary per application
 | index.tsx                               | the entry point into the react app
 
