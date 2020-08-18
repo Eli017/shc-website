@@ -2,6 +2,7 @@ import React from "react";
 import "./navigationModal.scss";
 import { NavLink } from "react-router-dom";
 import DropDownNav from "../DropDownNav/DropDownNav";
+import { useModal } from "../../contexts/useModal";
 
 const links = [
   { path: "/", text: "Home", isDropDown: false },
@@ -19,15 +20,21 @@ const dropDownLinks = [
 ];
 
 const NavigationModal = () => {
+  const { setModal } = useModal();
+
   return (
     <section className={"navigationModal"}>
+      <button className={"exit"} onClick={() => setModal(undefined)}>
+        X
+      </button>
       <ol>
         {links.map((link, i) => {
           if (link.isDropDown) {
             return <DropDownNav key={i} name={link.text} dropDownLinks={dropDownLinks} />;
           } else {
             return (
-              <li key={i}>
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
+              <li key={i} onClick={() => setModal(undefined)}>
                 <NavLink exact to={link.path}>
                   {link.text}
                 </NavLink>

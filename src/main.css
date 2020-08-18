@@ -46,4 +46,13 @@ h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+button {
+  border: none;
+  background: inherit;
+  cursor: pointer;
+}
+button:hover {
+  color: #f90100;
+}
+
 /*# sourceMappingURL=main.css.map */

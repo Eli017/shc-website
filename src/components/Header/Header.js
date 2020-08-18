@@ -33,7 +33,7 @@ const Header = () => {
         <img src={SHCLogo} title="SHC Logo" alt="SHC Logo" />
       </NavLink>
       <nav>
-        <button className={"mobileMenu"} onClick={() => setModal(NavigationModal)}>
+        <button className={"mobileMenu"} onClick={() => setModal(<NavigationModal />)}>
           Menu
         </button>
         <ul>
