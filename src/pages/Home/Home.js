@@ -4,6 +4,7 @@ import BuildingIcon from "../../assets/images/BuildingIcon.png";
 import GroupIcon from "../../assets/images/GroupIcon.png";
 import HandShakeIcon from "../../assets/images/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
+import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 
 const Home = () => {
   return (
@@ -39,6 +40,7 @@ const Home = () => {
         />
       </section>
       <h2>Meet your 2020-2021 Executive Board</h2>
+      <OfficerBoard />
       <h2>Our Events</h2>
       <h2>Interested in joining? Have a question? Let us know.</h2>
     </main>
