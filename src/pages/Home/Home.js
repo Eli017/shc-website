@@ -7,9 +7,9 @@ import CoreValue from "../../components/CoreValue/CoreValue";
 
 const Home = () => {
   return (
-    <main>
+    <main className={"home"}>
       <h2>What is Student Honors Council?</h2>
-      <section>
+      <section className={"coreValues"}>
         <CoreValue
           imageSource={BuildingIcon}
           imageDescription={"Agora"}
@@ -17,7 +17,7 @@ const Home = () => {
           description={
             "Student Honors Council serves as the student-governing body of the Ball State University Honors College. We work very closely with Honors College administration to collaborate on events and voice student feedback."
           }
-          link={"/honorsCollege"}
+          link={"/honors"}
         />
         <CoreValue
           imageSource={GroupIcon}
@@ -35,7 +35,7 @@ const Home = () => {
           description={
             "Student Honors Council not only works with the Ball State community, but we also work with the Muncie community, too. By participating in service opportunities such as volunteering at Camp Adventure or the Ross Community Center, our members work hard to give back to the community as a whole."
           }
-          link={"/service"}
+          link={"/community"}
         />
       </section>
       <h2>Meet your 2020-2021 Executive Board</h2>
