@@ -1,11 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router";
 import "./coreValue.scss";
 import { Link } from "react-router-dom";
 
 const CoreValue = ({ imageSource, imageDescription, title, description, link }) => {
-  const { history } = useHistory();
-
   return (
     <article className={"coreValue"}>
       <img src={imageSource} title={imageDescription} alt={imageDescription} className={"valueImage"} />
