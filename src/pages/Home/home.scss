@@ -27,4 +27,21 @@
     flex-wrap: wrap;
     margin-bottom: 2rem ;
   }
+
+  .contactHeader {
+    margin-top: 0.25rem;
+    text-align: center;
+  }
+
+  .link {
+    background-color: $primary-color;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    width: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: $common-white;
+    text-decoration: none;
+  }
 }
