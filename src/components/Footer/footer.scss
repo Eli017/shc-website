@@ -18,7 +18,7 @@ footer {
     margin: 1rem;
   }
 
-  article {
+  section {
     display: flex;
     flex-direction: column;
     width: 20rem;
@@ -38,5 +38,15 @@ footer {
     margin: 1rem auto 1rem auto;
     color: $common-white;
     text-decoration: none;
+  }
+
+  article {
+    align-self: center;
+  }
+
+  .socialIcon {
+    width: 2.5rem;
+    height: auto;
+    margin: 0.25rem;
   }
 }
