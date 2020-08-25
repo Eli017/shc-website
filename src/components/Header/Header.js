@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SHCLogo from "../../assets/images/SHCLogo.png";
+import SHCLogo from "../../assets/icons/SHCLogo.png";
 import DropDownNav from "../DropDownNav/DropDownNav";
 import "./header.scss";
 import { useModal } from "../../contexts/useModal";

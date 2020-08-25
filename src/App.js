@@ -12,6 +12,7 @@ import Officers from "./pages/Officers/Officers";
 import Contact from "./pages/Contact/Contact";
 import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const { modal } = useModal();
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path={"/404"} component={Page404} />
           <Redirect from={"*"} to={"/404"} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
