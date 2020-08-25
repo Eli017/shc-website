@@ -1,8 +1,8 @@
 import React from "react";
 import "./home.scss";
-import BuildingIcon from "../../assets/images/BuildingIcon.png";
-import GroupIcon from "../../assets/images/GroupIcon.png";
-import HandShakeIcon from "../../assets/images/HandShakeIcon.png";
+import BuildingIcon from "../../assets/icons/BuildingIcon.png";
+import GroupIcon from "../../assets/icons/GroupIcon.png";
+import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 import { Link } from "react-router-dom";
