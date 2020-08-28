@@ -22,7 +22,7 @@ const Home = () => {
   // eslint-disable-next-line no-undef
   useEffect(() => {
     grabFirebaseUsers();
-  }, []);
+  });
 
   return (
     <main className={"home"}>
