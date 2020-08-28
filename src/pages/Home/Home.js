@@ -6,9 +6,11 @@ import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 import { Link } from "react-router-dom";
-import { database } from "firebase";
+import Firebase from "../../firebase";
 
 const Home = () => {
+  const database = Firebase.firestore();
+
   const docReference = database.collection("users");
 
   const grabFirebaseUsers = () => {
