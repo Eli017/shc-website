@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { initializeApp } from "firebase";
+import config from "./firebase";
 import "./main.scss";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
@@ -13,6 +15,8 @@ import Contact from "./pages/Contact/Contact";
 import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
 import Footer from "./components/Footer/Footer";
+
+initializeApp(config);
 
 const App = () => {
   const { modal } = useModal();
