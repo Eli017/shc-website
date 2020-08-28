@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home.scss";
 import BuildingIcon from "../../assets/icons/BuildingIcon.png";
 import GroupIcon from "../../assets/icons/GroupIcon.png";
@@ -6,11 +6,28 @@ import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 import { Link } from "react-router-dom";
+import { database } from "firebase";
 
 const Home = () => {
+  const docReference = database.collection("users");
+
+  const grabFirebaseUsers = () => {
+    docReference.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+      });
+    });
+  };
+
+  // eslint-disable-next-line no-undef
+  useEffect(() => {
+    grabFirebaseUsers();
+  }, []);
+
   return (
     <main className={"home"}>
       <h2>What is Student Honors Council?</h2>
+      <p></p>
       <section className={"coreValues"}>
         <CoreValue
           imageSource={BuildingIcon}
