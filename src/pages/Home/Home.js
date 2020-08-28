@@ -6,10 +6,10 @@ import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 import { Link } from "react-router-dom";
-import Firebase from "../../firebase";
+import { firestore } from "firebase";
 
 const Home = () => {
-  const database = Firebase.firestore();
+  const database = firestore();
 
   const docReference = database.collection("users");
 
@@ -29,7 +29,6 @@ const Home = () => {
   return (
     <main className={"home"}>
       <h2>What is Student Honors Council?</h2>
-      <p></p>
       <section className={"coreValues"}>
         <CoreValue
           imageSource={BuildingIcon}
