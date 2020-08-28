@@ -1,0 +1,24 @@
+@import "fonts";
+@import "../abstracts/variables";
+
+h1, h2 {
+  font-family: $lora, $sans-serif;
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: $lato, $sans-serif;
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  font-family: Times, sans-serif;
+  font-size: 1rem;
+
+  &:hover {
+    color: $primary-color;
+  }
+}

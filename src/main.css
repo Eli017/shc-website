@@ -36,4 +36,25 @@ table {
   border-spacing: 0;
 }
 
+h1, h2 {
+  font-family: "Lora", "Sans-serif";
+  font-weight: bold;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Lato", "Sans-serif";
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  font-family: Times, sans-serif;
+  font-size: 1rem;
+}
+button:hover {
+  color: #f90100;
+}
+
 /*# sourceMappingURL=main.css.map */

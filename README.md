@@ -30,8 +30,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | src/components                          | the source files for reusable components developed for this application
 | src/components/`__tests__`              | tests used for different components within the application
 | src/pages                               | the components that act as the different pages to the application
-| src/contexts                            | (not included) contains multiple different context providers
-| src/helpers                             | (not included) contains common JS functions for multiple file applications
+| src/contexts                            | contains multiple different context providers and their hooks
+| src/helpers                             | contains common JS/JSX functions for multiple file applications
 | src/styles                              | stores any application styling, use can vary per application
 | index.tsx                               | the entry point into the react app
 
@@ -82,6 +82,10 @@ This application leverages a number of tools for test coverage
 | `yarn clean`   | Cleans build directories                                |
 | `yarn build`   | Builds the application for deployment (production mdoe) |
 | `yarn analyze` | Analyzes build bundle sizes (run `yarn build` first)    |
+
+## Project Specifics
+This project's styling is in the 7-in-1 structure found on this [Medium Sass Article](https://medium.com/@dannyhuang_75970/sass-project-structure-for-big-projects-8c4a740846ee).
+- A boilerplate example of this structure is here on Github's example [Repo](https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets).
 
 ### Credits
 

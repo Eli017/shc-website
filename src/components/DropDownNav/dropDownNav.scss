@@ -1,0 +1,22 @@
+@import "../../abstracts/variables";
+
+.dropDownNav {
+
+  ol {
+    position: absolute;
+    background: $common-white;
+    border: $common-grey solid 0.125rem;
+    padding: 0.2rem;
+
+    li {
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      border-bottom: $common-grey solid 0.125rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
