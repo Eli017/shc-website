@@ -5,11 +5,11 @@ import GroupIcon from "../../assets/icons/GroupIcon.png";
 import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
-import { Link } from "react-router-dom";
-import { firestore } from "firebase";
+import * as Firebase from "firebase";
+import Link from "react-router-dom/modules/Link";
 
 const Home = () => {
-  const database = firestore();
+  const database = Firebase.firestore();
 
   const docReference = database.collection("users");
 
