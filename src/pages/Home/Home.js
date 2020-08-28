@@ -6,7 +6,7 @@ import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
 import * as Firebase from "firebase";
-import Link from "react-router-dom/modules/Link";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const database = Firebase.firestore();
@@ -61,9 +61,9 @@ const Home = () => {
       <h2>Meet your 2020-2021 Executive Board</h2>
       <OfficerBoard />
       <h2 className={"contactHeader"}>Interested in joining? Have a question? Let us know.</h2>
-      <Link to={"/contact"} className={"link"}>
+      <NavLink to={"/contact"} className={"link"}>
         Contact Us
-      </Link>
+      </NavLink>
     </main>
   );
 };
