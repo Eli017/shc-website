@@ -1,4 +1,4 @@
-import * as firebase from "firebase";
+import { initializeApp } from "firebase";
 
 //Configuration based off of necessary Firebase information
 const config = {
@@ -9,9 +9,5 @@ const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 
-//Initialize firebase here to prevent repetitive instantiation
-firebase.initializeApp(config);
-
-//Declare and export firebase functions and variables that are needed within the app
-export const database = firebase.firestore();
-export const auth = firebase.auth();
+const Firebase = initializeApp(config);
+export default Firebase;

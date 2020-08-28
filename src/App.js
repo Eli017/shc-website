@@ -13,6 +13,7 @@ import Contact from "./pages/Contact/Contact";
 import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
 import Footer from "./components/Footer/Footer";
+import Firebase from "./firebase";
 
 const App = () => {
   const { modal } = useModal();
