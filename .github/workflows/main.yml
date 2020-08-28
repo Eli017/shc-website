@@ -12,13 +12,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install
+        run: yarn
       - name: Run Tests
         env:
-          CI: false
-        run: npm test
+          CI: true
+        run: yarn test
       - name: Build
-        run: npm run build
+        run: yarn build
         env:
           REACT_APP_FIREBASE_KEY: ${{ secrets.FIREBASE_API_KEY }}
           REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
