@@ -5,10 +5,12 @@ import GroupIcon from "../../assets/icons/GroupIcon.png";
 import HandShakeIcon from "../../assets/icons/HandShakeIcon.png";
 import CoreValue from "../../components/CoreValue/CoreValue";
 import OfficerBoard from "../../components/OfficerBoard/OfficerBoard";
-import { Link } from "react-router-dom";
-import { database } from "firebase";
+import * as Firebase from "firebase";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
+  const database = Firebase.firestore();
+
   const docReference = database.collection("users");
 
   const grabFirebaseUsers = () => {
@@ -22,12 +24,11 @@ const Home = () => {
   // eslint-disable-next-line no-undef
   useEffect(() => {
     grabFirebaseUsers();
-  }, []);
+  });
 
   return (
     <main className={"home"}>
       <h2>What is Student Honors Council?</h2>
-      <p></p>
       <section className={"coreValues"}>
         <CoreValue
           imageSource={BuildingIcon}
@@ -60,9 +61,9 @@ const Home = () => {
       <h2>Meet your 2020-2021 Executive Board</h2>
       <OfficerBoard />
       <h2 className={"contactHeader"}>Interested in joining? Have a question? Let us know.</h2>
-      <Link to={"/contact"} className={"link"}>
+      <NavLink to={"/contact"} className={"link"}>
         Contact Us
-      </Link>
+      </NavLink>
     </main>
   );
 };
