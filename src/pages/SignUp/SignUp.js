@@ -24,6 +24,7 @@ const SignUp = () => {
           setFirebaseMessage("User Already Exists!");
         } else {
           userRef
+            .doc(email)
             .set({
               email: email,
               name: name,
