@@ -1,0 +1,62 @@
+@import "../../abstracts/variables";
+
+.signUp {
+  background-color: $secondary-red;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    background-color: $common-white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 2rem 1rem;
+  }
+
+  .formTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .logo {
+    width: 17rem;
+    margin-bottom: 1rem;
+    border-bottom: $common-grey 0.125rem solid;
+  }
+
+  .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .input {
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .submit {
+    display: block;
+    text-align: center;
+
+    input {
+      background-color: $primary-color;
+      font-size: 1.1rem;
+      border-radius: 0.25rem;
+      padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+      margin-top: 1rem;
+      color: $common-white;
+      text-decoration: none;
+    }
+  }
+}
