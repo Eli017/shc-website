@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import { initializeApp } from "firebase";
 import firebaseConfig from "./firebase";
@@ -17,27 +17,42 @@ import SignUp from "./pages/SignUp/SignUp";
 
 initializeApp(firebaseConfig);
 
+export const AuthContext = React.createContext(null);
+
 const App = () => {
+  const [loginSession, setLoginSession] = useState(null);
+
+  const getFirebaseSession = () => {
+    const user = window.sessionStorage.getItem(`firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`);
+    return user ? setLoginSession(user) : null;
+  };
+
+  useEffect(() => {
+    getFirebaseSession();
+  });
+
   const { modal } = useModal();
 
   return (
     <div className="App">
-      <Router>
-        {modal}
-        <Switch>
-          <Route exact path={"/"} component={Home} />
-          <Route exact path={"/honors"} component={HonorsCollege} />
-          <Route exact path={"/membership"} component={Membership} />
-          <Route exact path={"/events"} component={Events} />
-          <Route exact path={"/community"} component={CommunityEngagement} />
-          <Route exact path={"/calendar"} component={Calendar} />
-          <Route exact path={"/officers"} component={Officers} />
-          <Route exact path={"/contact"} component={Contact} />
-          <Route exact path={"/404"} component={Page404} />
-          <Route exact path={"/signUp"} component={SignUp} />
-          <Redirect from={"*"} to={"/404"} />
-        </Switch>
-      </Router>
+      <AuthContext.Provider value={{ loginSession, setLoginSession }}>
+        <Router>
+          {modal}
+          <Switch>
+            <Route exact path={"/"} component={Home} />
+            <Route exact path={"/honors"} component={HonorsCollege} />
+            <Route exact path={"/membership"} component={Membership} />
+            <Route exact path={"/events"} component={Events} />
+            <Route exact path={"/community"} component={CommunityEngagement} />
+            <Route exact path={"/calendar"} component={Calendar} />
+            <Route exact path={"/officers"} component={Officers} />
+            <Route exact path={"/contact"} component={Contact} />
+            <Route exact path={"/404"} component={Page404} />
+            <Route exact path={"/signUp"} component={SignUp} />
+            <Redirect from={"*"} to={"/404"} />
+          </Switch>
+        </Router>
+      </AuthContext.Provider>
     </div>
   );
 };

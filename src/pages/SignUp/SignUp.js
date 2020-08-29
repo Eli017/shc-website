@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { firestore } from "firebase";
+import React, { useContext, useState } from "react";
+import { firestore, auth } from "firebase";
 import * as styles from "./signUp.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
+import { AuthContext } from "../../App";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +10,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
 
-  const checkFirebaseUsers = () => {
+  const authContext = useContext(AuthContext);
+
+  const addFirebaseUser = () => {
     const db = firestore();
     let userRef = db.collection("users");
     userRef
@@ -24,11 +27,18 @@ const SignUp = () => {
               email: email,
               name: name,
             })
-            .then(() => {
-              setFirebaseMessage("Official Signed Up!");
+            .then((doc) => {
+              auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                  authContext.setLoginSession(doc.data());
+                })
+                .catch(() => {
+                  setFirebaseMessage("Error Logging In! Contact Admin");
+                });
             })
             .catch(() => {
-              setFirebaseMessage("Error creating User, contact administer");
+              setFirebaseMessage("Error creating User, contact admin");
             });
         }
       });
@@ -55,20 +65,25 @@ const SignUp = () => {
     }
     if (!email.includes("@bsu.edu")) {
       setFirebaseMessage("Not a valid BSU email");
-      console.log("Not a valid BSU email");
     } else {
-      console.log("Valid email");
+      addFirebaseUser();
     }
   };
 
   return (
     <main className={styles.signUp}>
-      <section>
+      {firebaseMessage && (
+        <section className={styles.messageSection}>
+          <h3 className={styles.message}>{firebaseMessage}</h3>
+          <button onClick={() => setFirebaseMessage(null)}>X</button>
+        </section>
+      )}
+      <section className={styles.signUpForm}>
         <img src={MySHCLogo} alt={"MySHC Logo"} title={"MySHC Logo"} className={styles.logo} />
         <form>
           <h1 className={styles.formTitle}>Sign Up</h1>
           <label htmlFor={"email"} className={styles.label}>
-            BSU Email:
+            * BSU Email:
           </label>
           <input
             required={true}
@@ -80,7 +95,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor={"name"} className={styles.label}>
-            Name:
+            * Name:
           </label>
           <input
             required={true}
@@ -92,7 +107,7 @@ const SignUp = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor={"password"} className={styles.label}>
-            Password:
+            * Password:
           </label>
           <input
             required={true}
@@ -105,6 +120,7 @@ const SignUp = () => {
           <button type={"button"} className={styles.submit} onClick={() => submitForm()}>
             Submit
           </button>
+          <p>Required Fields are Marked with *</p>
         </form>
       </section>
     </main>
