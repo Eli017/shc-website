@@ -45,7 +45,7 @@ const SignUp = () => {
   };
 
   const checkRequiredFields = () => {
-    if (email.length === 0 || password.length === 0 || name.length === 0) {
+    if (email.length === 0) {
       setFirebaseMessage("Email is required");
       return false;
     } else if (name.length === 0) {
