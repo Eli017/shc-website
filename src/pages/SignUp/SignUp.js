@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { firestore } from "firebase";
 import * as styles from "./signUp.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
 
@@ -6,25 +7,71 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [firebaseMessage, setFirebaseMessage] = useState(null);
 
   const checkFirebaseUsers = () => {
-    return true;
+    const db = firestore();
+    let userRef = db.collection("users");
+    userRef
+      .doc(email)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          setFirebaseMessage("User Already Exists!");
+        } else {
+          userRef
+            .set({
+              email: email,
+              name: name,
+            })
+            .then(() => {
+              setFirebaseMessage("Official Signed Up!");
+            })
+            .catch(() => {
+              setFirebaseMessage("Error creating User, contact administer");
+            });
+        }
+      });
+  };
+
+  const checkRequiredFields = () => {
+    if (email.length === 0 || password.length === 0 || name.length === 0) {
+      setFirebaseMessage("Email is required");
+      return false;
+    } else if (name.length === 0) {
+      setFirebaseMessage("Name is required");
+      return false;
+    } else if (password.length === 0) {
+      setFirebaseMessage("Password is required");
+      return false;
+    } else {
+      return true;
+    }
   };
 
   const submitForm = () => {
-    return true;
+    if (checkRequiredFields() === false) {
+      return;
+    }
+    if (!email.includes("@bsu.edu")) {
+      setFirebaseMessage("Not a valid BSU email");
+      console.log("Not a valid BSU email");
+    } else {
+      console.log("Valid email");
+    }
   };
 
   return (
     <main className={styles.signUp}>
       <section>
         <img src={MySHCLogo} alt={"MySHC Logo"} title={"MySHC Logo"} className={styles.logo} />
-        <form onSubmit={submitForm}>
+        <form>
           <h1 className={styles.formTitle}>Sign Up</h1>
           <label htmlFor={"email"} className={styles.label}>
             BSU Email:
           </label>
           <input
+            required={true}
             type={"email"}
             name={"email"}
             placeholder={"ccardinal@bsu.edu"}
@@ -36,6 +83,7 @@ const SignUp = () => {
             Name:
           </label>
           <input
+            required={true}
             type={"text"}
             name={"name"}
             placeholder={"Charlie Cardinal"}
@@ -47,15 +95,16 @@ const SignUp = () => {
             Password:
           </label>
           <input
+            required={true}
             type={"password"}
             name={"password"}
             className={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <label className={styles.submit}>
-            <input type={"submit"} name={"Submit"} />
-          </label>
+          <button type={"button"} className={styles.submit} onClick={() => submitForm()}>
+            Submit
+          </button>
         </form>
       </section>
     </main>

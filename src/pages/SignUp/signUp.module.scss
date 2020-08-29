@@ -48,15 +48,15 @@
   .submit {
     display: block;
     text-align: center;
-
-    input {
-      background-color: $primary-color;
-      font-size: 1.1rem;
-      border-radius: 0.25rem;
-      padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-      margin-top: 1rem;
-      color: $common-white;
-      text-decoration: none;
-    }
+    background-color: $primary-color;
+    font-size: 1.1rem;
+    letter-spacing: 0.15rem;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: $common-white;
+    text-decoration: none;
   }
 }
