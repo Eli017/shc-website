@@ -15,18 +15,7 @@ import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
 import SignUp from "./pages/SignUp/SignUp";
 
-const firebaseDebugConfig = {
-  apiKey: "AIzaSyCP1SnQDaHgxNFp07PKV6-Ji4qw5rXhrqY",
-  authDomain: "shc-website-b093e.firebaseapp.com",
-  databaseURL: "https://shc-website-b093e.firebaseio.com",
-  projectId: "shc-website-b093e",
-  storageBucket: "shc-website-b093e.appspot.com",
-  messagingSenderId: "585652791539",
-  appId: "1:585652791539:web:343aac84ccc5f851d8ef86",
-  measurementId: "G-9CZHQBB0MM",
-};
-
-initializeApp(firebaseDebugConfig);
+initializeApp(firebaseConfig);
 
 export const AuthContext = React.createContext(null);
 
