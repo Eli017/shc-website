@@ -30,17 +30,19 @@ const SignUp = () => {
               name: name,
             })
             .then((doc) => {
+              authContext.setLoginSession(doc);
               auth()
                 .createUserWithEmailAndPassword(email, password)
                 .then(() => {
-                  authContext.setLoginSession(doc.data());
+                  setFirebaseMessage("User Created Successfully!");
                 })
                 .catch(() => {
                   setFirebaseMessage("Error Logging In! Contact Admin");
                 });
             })
-            .catch(() => {
+            .catch((e) => {
               setFirebaseMessage("Error creating User, contact admin");
+              console.log(e.message);
             });
         }
       });
