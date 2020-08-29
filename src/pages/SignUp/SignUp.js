@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
 
   const authContext = useContext(AuthContext);
@@ -53,6 +54,9 @@ const SignUp = () => {
       return false;
     } else if (password.length === 0) {
       setFirebaseMessage("Password is required");
+      return false;
+    } else if (confirmPassword !== password) {
+      setFirebaseMessage("Passwords must match");
       return false;
     } else {
       return true;
@@ -116,6 +120,17 @@ const SignUp = () => {
             className={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <label htmlFor={"confirmPassword"} className={styles.label}>
+            * Confirm Password:
+          </label>
+          <input
+            required={true}
+            type={"password"}
+            name={"confirmPassword"}
+            className={styles.input}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button type={"button"} className={styles.submit} onClick={() => submitForm()}>
             Submit
