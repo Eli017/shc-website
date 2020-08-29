@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import { initializeApp } from "firebase";
 import firebaseConfig from "./firebase";
 import "./main.scss";
-import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import HonorsCollege from "./pages/HonorsCollege/HonorsCollege";
 import Membership from "./pages/Membership/Membership";
@@ -14,7 +13,7 @@ import Officers from "./pages/Officers/Officers";
 import Contact from "./pages/Contact/Contact";
 import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
-import Footer from "./components/Footer/Footer";
+import SignUp from "./pages/SignUp/SignUp";
 
 initializeApp(firebaseConfig);
 
@@ -25,7 +24,6 @@ const App = () => {
     <div className="App">
       <Router>
         {modal}
-        <Header />
         <Switch>
           <Route exact path={"/"} component={Home} />
           <Route exact path={"/honors"} component={HonorsCollege} />
@@ -36,9 +34,9 @@ const App = () => {
           <Route exact path={"/officers"} component={Officers} />
           <Route exact path={"/contact"} component={Contact} />
           <Route exact path={"/404"} component={Page404} />
+          <Route exact path={"/signUp"} component={SignUp} />
           <Redirect from={"*"} to={"/404"} />
         </Switch>
-        <Footer />
       </Router>
     </div>
   );
