@@ -8,9 +8,31 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
 
-  const submitForm = () => {
-    //TODO: Implement Firebase Auth and User data pull
+  const checkRequiredFields = () => {
+    if (email.length === 0) {
+      setFirebaseMessage("Email is required");
+      return false;
+    } else if (password.length === 0) {
+      setFirebaseMessage("Password is required");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const logInUser = () => {
     return true;
+  };
+
+  const submitForm = () => {
+    if (checkRequiredFields() === false) {
+      return;
+    }
+    if (!email.includes("@bsu.edu")) {
+      setFirebaseMessage("Not a valid BSU email");
+    } else {
+      logInUser();
+    }
   };
 
   return (
