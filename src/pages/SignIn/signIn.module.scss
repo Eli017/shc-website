@@ -82,4 +82,17 @@
     color: $common-white;
     text-decoration: none;
   }
+
+  .account {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: $common-grey solid 0.125rem;
+    margin-top: 0.5rem;
+
+    p {
+      padding-bottom: 0.25rem;
+    }
+  }
 }

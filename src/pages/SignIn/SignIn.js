@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as styles from "./signIn.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
+import { NavLink } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const SignIn = () => {
       <section className={styles.signInForm}>
         <img src={MySHCLogo} alt={"MySHC Logo"} title={"MySHC Logo"} className={styles.logo} />
         <form>
-          <h1 className={styles.formTitle}>Sign Up</h1>
+          <h1 className={styles.formTitle}>Sign In</h1>
           <label htmlFor={"email"} className={styles.label}>
             * BSU Email:
           </label>
@@ -45,6 +46,7 @@ const SignIn = () => {
             name={"password"}
             className={styles.input}
             value={password}
+            placeholder={"ChirpChirp20!"}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type={"button"} className={styles.submit} onClick={() => submitForm()}>
@@ -52,6 +54,10 @@ const SignIn = () => {
           </button>
           <p>Required Fields are Marked with *</p>
         </form>
+        <article className={styles.account}>
+          <p>Don't have an Account?</p>
+          <NavLink to={"/signUp"}>Register Here</NavLink>
+        </article>
       </section>
     </main>
   );
