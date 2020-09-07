@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import * as styles from "./signIn.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
 import { NavLink } from "react-router-dom";
+import { firestore, auth } from "firebase";
+import { AuthContext } from "../../App";
 
-const SignIn = () => {
+const SignIn = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
+  const authContext = useContext(AuthContext);
 
   const checkRequiredFields = () => {
     if (email.length === 0) {
@@ -20,8 +23,37 @@ const SignIn = () => {
     }
   };
 
+  const grabUserByEmail = (email) => {
+    const db = firestore();
+    let userRef = db.collection("users").doc(email);
+    userRef.get().then(function (doc) {
+      if (doc.exists) {
+        console.log(doc.data());
+        let document = doc.data();
+        authContext.setLoginSession(document);
+        console.log(authContext.loginSession);
+      } else {
+        console.log("User not found!");
+      }
+    });
+  };
+
   const logInUser = () => {
-    return true;
+    const firebaseAuth = auth();
+    firebaseAuth.setPersistence(firebaseAuth.Auth.Persistence.SESSION).then(() => {
+      firebaseAuth
+        .signInWithEmailAndPassword(email, password)
+        .then((res) => {
+          if (res.user) {
+            grabUserByEmail(res.user.email);
+            history.push("/adminlanding");
+          } else {
+          }
+        })
+        .catch((e) => {
+          setFirebaseMessage(e.message);
+        });
+    });
   };
 
   const submitForm = () => {

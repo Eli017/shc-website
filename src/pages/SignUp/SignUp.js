@@ -3,6 +3,7 @@ import { firestore, auth } from "firebase";
 import * as styles from "./signUp.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
 import { AuthContext } from "../../App";
+import { NavLink } from "react-router-dom";
 
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -142,6 +143,10 @@ const SignUp = ({ history }) => {
             Submit
           </button>
           <p>Required Fields are Marked with *</p>
+          <article className={styles.account}>
+            <p>Have an Account?</p>
+            <NavLink to={"/signIn"}>Sign-In Here</NavLink>
+          </article>
         </form>
       </section>
     </main>
