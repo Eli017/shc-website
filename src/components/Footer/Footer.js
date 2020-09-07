@@ -12,7 +12,7 @@ const Footer = () => {
     <footer>
       <section>
         <img src={MySHC} title={"MySHC Logo"} alt={"MySHC Logo"} className={"mySHCImage"} />
-        <Link to={"/login"} className={"link"}>
+        <Link to={"/signUp"} className={"link"}>
           Login to mySHC
         </Link>
         <article>

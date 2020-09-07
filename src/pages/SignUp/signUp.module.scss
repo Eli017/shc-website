@@ -1,0 +1,98 @@
+@import "../../abstracts/variables";
+
+.signUp {
+  background-color: $secondary-red;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .messageSection {
+    width: 100vw;
+    height: 3rem;
+    position: absolute;
+    top: 0;
+    background-color: $common-grey;
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .message {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  .signUpForm {
+    background-color: $common-white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 2rem 1rem;
+  }
+
+  .formTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .logo {
+    width: 17rem;
+    margin-bottom: 1rem;
+    border-bottom: $common-grey 0.125rem solid;
+  }
+
+  .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .input {
+    height: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .submit {
+    display: block;
+    text-align: center;
+    background-color: $primary-color;
+    font-size: 1.1rem;
+    letter-spacing: 0.15rem;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    margin: 1rem auto 1rem auto;
+    color: $common-white;
+    text-decoration: none;
+  }
+
+  .account {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: $common-grey solid 0.125rem;
+    margin-top: 0.5rem;
+
+    p {
+      padding-bottom: 0.25rem;
+    }
+  }
+}
