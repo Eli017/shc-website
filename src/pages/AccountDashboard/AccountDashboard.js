@@ -36,7 +36,7 @@ const AccountDashboard = ({ history }) => {
     <React.Fragment>
       <Header />
       <main className={styles.accountDashboard}>
-        <p>Welcome {user?.name ?? ""}, this part of the site is under construction.</p>
+        <p>Welcome {user?.name ?? ""}, this part of the site is under construction!</p>
       </main>
       <Footer />
     </React.Fragment>
