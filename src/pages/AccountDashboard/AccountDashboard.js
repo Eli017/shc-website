@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import * as styles from "./acccountDashboard.module.scss";
+import * as styles from "./accountDashboard.module.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { AuthContext } from "../../App";
