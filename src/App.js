@@ -15,6 +15,7 @@ import Page404 from "./pages/404/404";
 import { useModal } from "./contexts/useModal";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
+import AccountDashboard from "./pages/AccountDashboard/AccountDashboard";
 
 initializeApp(firebaseConfig);
 
@@ -51,6 +52,7 @@ const App = () => {
             <Route exact path={"/404"} component={Page404} />
             <Route exact path={"/signIn"} component={SignIn} />
             <Route exact path={"/signUp"} component={SignUp} />
+            <Route exact path={"/accountDashboard"} component={AccountDashboard} />
             <Redirect from={"*"} to={"/404"} />
           </Switch>
         </Router>
