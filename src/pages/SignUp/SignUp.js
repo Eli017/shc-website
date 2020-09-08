@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { firestore, auth } from "firebase";
 import * as styles from "./signUp.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
-import { AuthContext } from "../../App";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../App";
 
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -12,6 +12,12 @@ const SignUp = ({ history }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
   const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    if (authContext.loginSession !== null) {
+      history.push("/accountDashboard");
+    }
+  });
 
   const addFirebaseUser = () => {
     const db = firestore();
@@ -29,23 +35,21 @@ const SignUp = ({ history }) => {
               email: email,
               name: name,
             })
-            .then((doc) => {
-              authContext.setLoginSession(doc);
+            .then(() => {
               auth()
                 .createUserWithEmailAndPassword(email, password)
-                .then((authUser) => {
+                .then(() => {
                   setFirebaseMessage("User Created Successfully!");
-                  console.log(authUser);
+                  history.push("/signIn");
                 })
-                .catch(() => {
-                  setFirebaseMessage("Error Logging In! Contact Admin");
+                .catch((e) => {
+                  setFirebaseMessage(e.message);
                 });
             })
             .catch((e) => {
-              setFirebaseMessage("Error creating User, contact admin");
+              setFirebaseMessage("Error Registering, Contact Admin");
               console.log(e.message);
             });
-          history.push("/signIn");
         }
       });
   };

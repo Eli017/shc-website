@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as styles from "./signIn.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
 import { NavLink } from "react-router-dom";
@@ -10,6 +10,12 @@ const SignIn = ({ history }) => {
   const [password, setPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
   const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    if (authContext.loginSession !== null) {
+      history.push("/accountDashboard");
+    }
+  });
 
   const checkRequiredFields = () => {
     if (email.length === 0) {
@@ -31,7 +37,7 @@ const SignIn = ({ history }) => {
         console.log(doc.data());
         let document = doc.data();
         authContext.setLoginSession(document);
-        console.log(authContext.loginSession);
+        history.push("/accountDashboard");
       } else {
         console.log("User not found!");
       }
@@ -40,14 +46,12 @@ const SignIn = ({ history }) => {
 
   const logInUser = () => {
     const firebaseAuth = auth();
-    firebaseAuth.setPersistence(firebaseAuth.Auth.Persistence.SESSION).then(() => {
+    firebaseAuth.setPersistence(auth.Auth.Persistence.SESSION).then(() => {
       firebaseAuth
         .signInWithEmailAndPassword(email, password)
         .then((res) => {
           if (res.user) {
             grabUserByEmail(res.user.email);
-            history.push("/adminlanding");
-          } else {
           }
         })
         .catch((e) => {
