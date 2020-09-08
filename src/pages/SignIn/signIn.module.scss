@@ -1,6 +1,6 @@
 @import "../../abstracts/variables";
 
-.signUp {
+.signIn {
   background-color: $secondary-red;
   width: 100vw;
   height: 100vh;
@@ -33,7 +33,7 @@
     }
   }
 
-  .signUpForm {
+  .signInForm {
     background-color: $common-white;
     border-radius: 1rem;
     display: flex;

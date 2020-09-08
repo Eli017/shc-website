@@ -3,14 +3,14 @@ import { firestore, auth } from "firebase";
 import * as styles from "./signUp.module.scss";
 import MySHCLogo from "../../assets/icons/MySHC.png";
 import { AuthContext } from "../../App";
+import { NavLink } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firebaseMessage, setFirebaseMessage] = useState(null);
-
   const authContext = useContext(AuthContext);
 
   const addFirebaseUser = () => {
@@ -33,8 +33,9 @@ const SignUp = () => {
               authContext.setLoginSession(doc);
               auth()
                 .createUserWithEmailAndPassword(email, password)
-                .then(() => {
+                .then((authUser) => {
                   setFirebaseMessage("User Created Successfully!");
+                  console.log(authUser);
                 })
                 .catch(() => {
                   setFirebaseMessage("Error Logging In! Contact Admin");
@@ -44,6 +45,7 @@ const SignUp = () => {
               setFirebaseMessage("Error creating User, contact admin");
               console.log(e.message);
             });
+          history.push("/signIn");
         }
       });
   };
@@ -122,6 +124,7 @@ const SignUp = () => {
             name={"password"}
             className={styles.input}
             value={password}
+            placeholder={"ChirpChirp20!"}
             onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor={"confirmPassword"} className={styles.label}>
@@ -133,12 +136,17 @@ const SignUp = () => {
             name={"confirmPassword"}
             className={styles.input}
             value={confirmPassword}
+            placeholder={"ChirpChirp20!"}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <button type={"button"} className={styles.submit} onClick={() => submitForm()}>
             Submit
           </button>
           <p>Required Fields are Marked with *</p>
+          <article className={styles.account}>
+            <p>Have an Account?</p>
+            <NavLink to={"/signIn"}>Sign-In Here</NavLink>
+          </article>
         </form>
       </section>
     </main>

@@ -3,31 +3,31 @@ import "./officerBoard.scss";
 import OfficerCard from "../OfficerCard/OfficerCard";
 import BobbieBurton from "../../assets/images/BobbieBurton.png";
 import TannerPrewitt from "../../assets/images/TannerPrewitt.png";
-import KyraChristiansen from "../../assets/images/KyraChristiansen.jpg";
-import RebeccaConrad from "../../assets/images/RebeccaConrad.jpg";
+import GraceBabcock from "../../assets/images/GraceBabcock.png";
+import LoganArnold from "../../assets/images/LoganArnold.png";
+import RoseWinters from "../../assets/images/RoseWinters.png";
 import EliSokeland from "../../assets/images/EliSokeland.jpg";
-import ZachJohnson from "../../assets/images/ZachJohnson.jpg";
 
 const OfficerBoard = () => {
   return (
     <section className={"officerBoard"}>
-      <OfficerCard name={"Zach Johnson"} position={"President"} photo={ZachJohnson} link={"/officers/president"} />
+      <OfficerCard name={"Tanner Prewitt"} position={"President"} photo={TannerPrewitt} link={"/officers/president"} />
       <OfficerCard
-        name={"Tanner Prewitt"}
+        name={"Bobbie Burton"}
         position={"Vice President"}
-        photo={TannerPrewitt}
+        photo={BobbieBurton}
         link={"/officers/vice-president"}
       />
       <OfficerCard
-        name={"Rebecca Conrad"}
+        name={"Rose Winters"}
         position={"Director of Administrative Affairs"}
-        photo={RebeccaConrad}
+        photo={RoseWinters}
         link={"/officers/records"}
       />
       <OfficerCard
-        name={"Kyra Christiansen"}
+        name={"Logan Arnold"}
         position={"Director of Awards and Engagement"}
-        photo={KyraChristiansen}
+        photo={LoganArnold}
         link={"/officers/awards"}
       />
       <OfficerCard
@@ -37,9 +37,9 @@ const OfficerBoard = () => {
         link={"/officers/online"}
       />
       <OfficerCard
-        name={"Bobbie Burton"}
+        name={"Grace Babcock"}
         position={"Director of Promotions"}
-        photo={BobbieBurton}
+        photo={GraceBabcock}
         link={"/officers/promotions"}
       />
     </section>
