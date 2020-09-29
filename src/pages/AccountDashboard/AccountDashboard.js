@@ -20,14 +20,15 @@ const AccountDashboard = ({ history }) => {
   const grabFirebaseUser = () => {
     const db = firestore();
     let userRef = db.collection("users");
+    let loginSession = JSON.parse(authContext.loginSession);
     userRef
-      .doc(authContext.loginSession.email)
+      .doc(loginSession.email ? loginSession.email : "null")
       .get()
       .then((doc) => {
         if (doc.exists) {
           setUser(doc.data());
         } else {
-          setUser(authContext.loginSession.email);
+          setUser(loginSession.email ? loginSession.email : "null");
         }
       });
   };
