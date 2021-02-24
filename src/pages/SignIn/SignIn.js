@@ -34,7 +34,6 @@ const SignIn = ({ history }) => {
     let userRef = db.collection("users").doc(email);
     userRef.get().then(function (doc) {
       if (doc.exists) {
-        console.log(doc.data());
         let document = doc.data();
         authContext.setLoginSession(document);
         history.push("/accountDashboard");

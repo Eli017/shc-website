@@ -2,16 +2,16 @@ import React from "react";
 import "./officerBoard.scss";
 import OfficerCard from "../OfficerCard/OfficerCard";
 import BobbieBurton from "../../assets/images/BobbieBurton.png";
-import TannerPrewitt from "../../assets/images/TannerPrewitt.png";
 import GraceBabcock from "../../assets/images/GraceBabcock.png";
 import LoganArnold from "../../assets/images/LoganArnold.png";
 import RoseWinters from "../../assets/images/RoseWinters.png";
 import EliSokeland from "../../assets/images/EliSokeland.jpg";
+import SusanFleshman from "../../assets/images/SusanFleshman.png";
 
 const OfficerBoard = () => {
   return (
     <section className={"officerBoard"}>
-      <OfficerCard name={"Tanner Prewitt"} position={"President"} photo={TannerPrewitt} link={"/officers/president"} />
+      <OfficerCard name={"Rose Winters"} position={"President"} photo={RoseWinters} link={"/officers/president"} />
       <OfficerCard
         name={"Bobbie Burton"}
         position={"Vice President"}
@@ -19,9 +19,9 @@ const OfficerBoard = () => {
         link={"/officers/vice-president"}
       />
       <OfficerCard
-        name={"Rose Winters"}
+        name={"Susan Fleshman"}
         position={"Director of Administrative Affairs"}
-        photo={RoseWinters}
+        photo={SusanFleshman}
         link={"/officers/records"}
       />
       <OfficerCard
